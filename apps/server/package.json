@@ -1,0 +1,21 @@
+{
+  "name": "@earshot/server",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "tsx watch src/index.ts",
+    "build": "esbuild src/index.ts --bundle --platform=node --target=node22 --format=cjs --outfile=dist/index.cjs --sourcemap --legal-comments=none",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@earshot/shared": "*",
+    "@fastify/multipart": "^10.1.0",
+    "@fastify/static": "^10.1.0",
+    "fastify": "^5.12.0",
+    "zod": "^4.6.0"
+  },
+  "devDependencies": {
+    "esbuild": "^0.28.0"
+  }
+}

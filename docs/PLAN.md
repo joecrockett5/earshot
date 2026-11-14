@@ -9,18 +9,18 @@ recorded in [DECISIONS.md](DECISIONS.md).
 
 Each milestone leaves the app runnable and the test suite green.
 
-| #   | Milestone                  | Outcome                                                                                           |
-| --- | -------------------------- | ------------------------------------------------------------------------------------------------- |
-| 1   | Shared maths and schema    | `packages/shared`: radar ↔ polar ↔ Web Audio coordinates, zod scene schema, migrations, WAV codec |
-| 2   | Server API and storage     | Fastify REST API, atomic file storage, upload validation (size, content type, magic bytes)        |
-| 3   | Radar UI and live preview  | SVG radar, drop / drag / keyboard editing, HRTF preview graph, sidebar library, inspector         |
-| 4   | Export                     | Same graph in an `OfflineAudioContext`, 16/24-bit WAV download                                    |
-| 5   | Settings                   | Drawer with spatial, editing, export and appearance settings plus headphone tips                  |
-| 6   | Persistence polish         | Debounced autosave, save status, deep links, clip garbage collection, error toasts                |
-| 7   | Docker                     | Multi-stage image, non-root, healthcheck, `compose.yaml`, smoke-test script                       |
-| 8   | CI and releases            | `ci.yml`, `release-please.yml`, `publish.yml`, `codeql.yml`, Dependabot                           |
-| 9   | Demo sounds and media      | Synthesised demo clips, "Load demo", `npm run media` (screenshots + GIF)                          |
-| 10  | Branding and README        | Logo, favicon, hero, social preview, `BRAND.md`, README and community files                       |
+| #   | Milestone                 | Outcome                                                                                           |
+| --- | ------------------------- | ------------------------------------------------------------------------------------------------- |
+| 1   | Shared maths and schema   | `packages/shared`: radar ↔ polar ↔ Web Audio coordinates, zod scene schema, migrations, WAV codec |
+| 2   | Server API and storage    | Fastify REST API, atomic file storage, upload validation (size, content type, magic bytes)        |
+| 3   | Radar UI and live preview | SVG radar, drop / drag / keyboard editing, HRTF preview graph, sidebar library, inspector         |
+| 4   | Export                    | Same graph in an `OfflineAudioContext`, 16/24-bit WAV download                                    |
+| 5   | Settings                  | Drawer with spatial, editing, export and appearance settings plus headphone tips                  |
+| 6   | Persistence polish        | Debounced autosave, save status, deep links, clip garbage collection, error toasts                |
+| 7   | Docker                    | Multi-stage image, non-root, healthcheck, `compose.yaml`, smoke-test script                       |
+| 8   | CI and releases           | `ci.yml`, `release-please.yml`, `publish.yml`, `codeql.yml`, Dependabot                           |
+| 9   | Demo sounds and media     | Synthesised demo clips, "Load demo", `npm run media` (screenshots + GIF)                          |
+| 10  | Branding and README       | Logo, favicon, hero, social preview, `BRAND.md`, README and community files                       |
 
 ## File tree
 

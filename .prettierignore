@@ -1,0 +1,13 @@
+node_modules
+dist
+coverage
+data
+.tmp
+test-results
+playwright-report
+package-lock.json
+CHANGELOG.md
+.release-please-manifest.json
+docs/media
+assets
+apps/web/public
