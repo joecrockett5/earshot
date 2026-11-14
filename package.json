@@ -30,7 +30,7 @@
     "e2e": "playwright test",
     "demo:sounds": "tsx scripts/generate-demo-sounds.ts",
     "brand": "tsx scripts/generate-brand-assets.ts",
-    "media": "tsx scripts/media.ts",
+    "media": "npm run build && tsx scripts/media.ts",
     "docker:smoke": "bash scripts/docker-smoke.sh"
   },
   "devDependencies": {
