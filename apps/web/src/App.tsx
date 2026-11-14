@@ -8,6 +8,7 @@ import { Transport } from './components/Transport';
 import {
   exportWav,
   init,
+  openFromHash,
   removeSource,
   saveOnExit,
   select,
@@ -75,11 +76,13 @@ export function App() {
     void init();
     document.addEventListener('keydown', onKeyDown);
     window.addEventListener('pagehide', saveOnExit);
+    window.addEventListener('hashchange', openFromHash);
     window.addEventListener('pointerdown', warmAudio, { once: true });
     window.addEventListener('keydown', warmAudio, { once: true });
     return () => {
       document.removeEventListener('keydown', onKeyDown);
       window.removeEventListener('pagehide', saveOnExit);
+      window.removeEventListener('hashchange', openFromHash);
       window.removeEventListener('pointerdown', warmAudio);
       window.removeEventListener('keydown', warmAudio);
     };

@@ -515,14 +515,11 @@ button:disabled {
   border-radius: 12px;
   outline: 1px dashed transparent;
   outline-offset: -1px;
-  transition:
-    outline-color 120ms,
-    background 120ms;
+  transition: outline-color 120ms;
 }
 
 .radar--drop {
   outline-color: var(--accent);
-  background: var(--accent-soft);
 }
 
 .radar__svg {
@@ -554,6 +551,7 @@ button:disabled {
 
 .radar--drop .radar__ring--outer {
   stroke: var(--accent);
+  stroke-width: 1.5;
 }
 
 .radar__ring-label {

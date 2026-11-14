@@ -221,6 +221,12 @@ export async function init(): Promise<void> {
   }
 }
 
+/** Follow a Sound link pasted or edited into the address bar of an open tab. */
+export function openFromHash(): void {
+  const id = window.location.hash.slice(1);
+  if (isId(id) && store.get().sounds.some((sound) => sound.id === id)) void openSound(id);
+}
+
 /* ---- sources ----------------------------------------------------------- */
 
 export function select(id: string | null): void {
