@@ -1,6 +1,6 @@
 {
   "name": "earshot",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "private": true,
   "description": "Self-hosted spatial audio scene designer. Place a sound. Hear it there.",
   "license": "MIT",
