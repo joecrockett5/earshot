@@ -23,6 +23,7 @@ jobs:
         with:
           config-file: release-please-config.json
           manifest-file: .release-please-manifest.json
+          target-branch: main
 
   # Releases created with the built-in GITHUB_TOKEN do not fire `release`
   # events, so the image is published by calling the workflow directly.

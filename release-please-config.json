@@ -4,6 +4,7 @@
   "packages": {
     ".": {
       "release-type": "node",
+      "initial-version": "0.1.0",
       "package-name": "earshot",
       "include-component-in-tag": false,
       "changelog-path": "CHANGELOG.md",
