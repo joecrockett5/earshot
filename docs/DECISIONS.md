@@ -126,7 +126,7 @@ The build stage runs on the builder's native platform, because its output is Jav
 
 ### TypeScript is pinned to 6.0
 
-typescript-eslint did not yet support newer TypeScript when the project was set up. Dependabot is told to leave major and minor TypeScript bumps to a human.
+typescript-eslint did not yet support newer TypeScript when the project was set up.
 
 ### Node 24 in production, Node 22 or later to develop
 
