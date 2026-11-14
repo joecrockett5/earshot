@@ -1,0 +1,9 @@
+services:
+  earshot:
+    image: ghcr.io/joecrockett5/earshot:0
+    container_name: earshot
+    ports:
+      - '8080:8080'
+    volumes:
+      - ./data:/data
+    restart: unless-stopped

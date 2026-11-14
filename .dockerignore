@@ -1,0 +1,15 @@
+**/node_modules
+**/dist
+.git
+.github
+coverage
+data
+docs
+assets
+e2e
+scripts
+test-results
+playwright-report
+*.md
+*.log
+.env*
