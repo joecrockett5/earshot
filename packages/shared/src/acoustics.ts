@@ -1,5 +1,14 @@
 import { MIN_DISTANCE, clamp } from './coords';
-import type { DistanceModel, Scene, Source } from './schema';
+import type { DistanceModel, Settings, Source } from './schema';
+
+/** The parts of a source that determine when it sounds. */
+export type Timing = Pick<Source, 'startOffset' | 'duration' | 'loop'>;
+
+/** The parts of a scene that determine how long it is. */
+export interface Timeline {
+  sources: readonly Timing[];
+  settings: Pick<Settings, 'reverb' | 'loopDuration'>;
+}
 
 /** Extra seconds rendered after the last clip so the reverb can ring out. */
 export const REVERB_TAIL_SECONDS = 1.5;
@@ -51,7 +60,7 @@ export function effectiveDistance(distance: number, maxDistance: number): number
   return clamp(distance, MIN_DISTANCE, Math.max(MIN_DISTANCE, maxDistance));
 }
 
-export function hasLoop(scene: Pick<Scene, 'sources'>): boolean {
+export function hasLoop(scene: Pick<Timeline, 'sources'>): boolean {
   return scene.sources.some((source) => source.loop);
 }
 
@@ -60,7 +69,7 @@ export function hasLoop(scene: Pick<Scene, 'sources'>): boolean {
  * - If anything loops: the user-set loop duration.
  * - Otherwise: the end of the last clip, plus a short tail when reverb is on.
  */
-export function sceneDuration(scene: Pick<Scene, 'sources' | 'settings'>): number {
+export function sceneDuration(scene: Timeline): number {
   if (scene.sources.length === 0) return 0;
   if (hasLoop(scene)) return scene.settings.loopDuration;
   const end = Math.max(...scene.sources.map((s) => s.startOffset + s.duration));
@@ -68,10 +77,7 @@ export function sceneDuration(scene: Pick<Scene, 'sources' | 'settings'>): numbe
 }
 
 /** Whether a source's clip is audible at `time` seconds into the Sound. */
-export function isSounding(
-  source: Pick<Source, 'startOffset' | 'duration' | 'loop'>,
-  time: number,
-): boolean {
+export function isSounding(source: Timing, time: number): boolean {
   if (time < source.startOffset) return false;
   return source.loop || time < source.startOffset + source.duration;
 }
@@ -87,10 +93,7 @@ export interface Schedule {
  * When and where to start a source's clip if playback begins `from` seconds
  * into the Sound. Returns null if the clip has already finished.
  */
-export function scheduleSource(
-  source: Pick<Source, 'startOffset' | 'duration' | 'loop'>,
-  from: number,
-): Schedule | null {
+export function scheduleSource(source: Timing, from: number): Schedule | null {
   if (source.duration <= 0) return null;
   if (from <= source.startOffset) return { delay: source.startOffset - from, offset: 0 };
   const elapsed = from - source.startOffset;
